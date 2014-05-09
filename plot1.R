@@ -1,4 +1,9 @@
-setwd("C:\\Users\\dgraziotin\\Documents\\GitHub\\ExData_Plotting1")
+# force here the directory where the script is to set where to create the data folder and to output the pictures
+working_directory <- ""
+
+if (nchar(working_directory) > 0){
+  setwd(working_directory)
+}
 
 if(!file.exists("data")){
   dir.create("data")
@@ -18,4 +23,5 @@ df <- subset(df, df$Date=="1/2/2007" | df$Date=="2/2/2007")
 
 png(filename="plot1.png",width = 480, height = 480)
 with(df,hist(Global_active_power,  col="red", main="Global Active Power",xlab="Global Active Power (kilowatts)"))
+
 dev.off()

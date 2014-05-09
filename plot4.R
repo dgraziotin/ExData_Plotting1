@@ -1,4 +1,9 @@
-setwd("C:\\Users\\dgraziotin\\Documents\\GitHub\\ExData_Plotting1")
+# force here the directory where the script is to set where to create the data folder and to output the pictures
+working_directory <- ""
+
+if (nchar(working_directory) > 0){
+  setwd(working_directory)
+}
 
 if(!file.exists("data")){
   dir.create("data")

@@ -1,4 +1,9 @@
-setwd("C:\\Users\\dgraziotin\\Documents\\GitHub\\ExData_Plotting1")
+# force here the directory where the script is to set where to create the data folder and to output the pictures
+working_directory <- ""
+
+if (nchar(working_directory) > 0){
+  setwd(working_directory)
+}
 
 if(!file.exists("data")){
   dir.create("data")
@@ -23,4 +28,5 @@ df$Timestamp <- strptime(paste(df$Date,df$Time, sep=" "), format="%d/%m/%Y %H:%M
 Sys.setlocale("LC_TIME", "usa") # needed on a Windows machine not set to use English date names
 png(filename="plot2.png",width = 480, height = 480)
 with(df,plot(Timestamp, Global_active_power, type="l",xlab="", ylab="Global Active Power (kilowatts)"))
+
 dev.off()
